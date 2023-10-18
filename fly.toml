@@ -1,0 +1,12 @@
+app = "ollama-demo"
+primary_region = "ord"
+
+[build]
+image = "ollama/ollama:latest"
+
+[mounts]
+source = "ollama"
+destination = "/root/.ollama"
+
+[http_service]
+internal_port = 11434
