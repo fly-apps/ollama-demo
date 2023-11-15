@@ -4,9 +4,12 @@ primary_region = "ord"
 [build]
 image = "ollama/ollama:latest"
 
-[mounts]
+[[mounts]]
 source = "ollama"
 destination = "/root/.ollama"
+
+[[compute]]
+size = "a100-40gb"
 
 [http_service]
 internal_port = 11434
