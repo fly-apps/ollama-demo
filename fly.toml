@@ -1,5 +1,6 @@
 app = "ollama-demo"
 primary_region = "ord"
+vm.size = "a100-40gb"
 
 [build]
 image = "ollama/ollama:latest"
@@ -8,8 +9,6 @@ image = "ollama/ollama:latest"
 source = "ollama"
 destination = "/root/.ollama"
 
-[[compute]]
-size = "a100-40gb"
-
 [http_service]
 internal_port = 11434
+force_https = true
