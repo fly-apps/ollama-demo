@@ -4,7 +4,7 @@
 
 First deploy with:
 ```
-fly launch
+fly launch --from https://github.com/fly-apps/ollama-demo
 ```
 
 from there update by running: `fly deploy`
