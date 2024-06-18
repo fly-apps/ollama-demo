@@ -1,16 +1,28 @@
-app = "ollama-demo"
+app = "" # Change this to your app name
 primary_region = "ord"
-vm.size = "a100-40gb"
 
 [build]
-image = "ollama/ollama:latest"
+  image = "ollama/ollama:latest"
 
 [[mounts]]
-source = "ollama"
-destination = "/root/.ollama"
+  source = "ollama"
+  destination = "/root/.ollama"
+  initial_size = "10gb"
 
 [http_service]
-internal_port = 11434
-auto_stop_machines = true
-auto_start_machines = true
-min_machines_running = 0
+  internal_port = 11434
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+
+[[http_service.checks]]
+  grace_period = "10s"
+  interval = "30s"
+  method = "GET"
+  timeout = "5s"
+  path = "/"
+
+[[vm]]
+  size = "performance-8x"
+  memory = "16gb"
+  gpu_kind = "l40s"
