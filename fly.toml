@@ -1,29 +1,28 @@
-app = "" # Change this to your app name
-primary_region = "ord"
+primary_region = 'ord'
 
 [build]
-  image = "ollama/ollama:latest"
+  image = 'ollama/ollama:latest'
 
 [[mounts]]
-  source = "ollama"
-  destination = "/root/.ollama"
-  initial_size = "20gb"
+  source = 'ollama'
+  destination = '/root/.ollama'
+  initial_size = '20gb'
   auto_extend_size_threshold = 80
-  auto_extend_size_increment = "10gb"
-  auto_extend_size_limit = "100gb"
+  auto_extend_size_increment = '10gb'
+  auto_extend_size_limit = '100gb'
 
 [http_service]
   internal_port = 11434
-  auto_stop_machines = true
+  auto_stop_machines = 'stop'
   auto_start_machines = true
   min_machines_running = 0
 
-[[http_service.checks]]
-  grace_period = "10s"
-  interval = "30s"
-  method = "GET"
-  timeout = "5s"
-  path = "/"
+  [[http_service.checks]]
+    interval = '30s'
+    timeout = '5s'
+    grace_period = '10s'
+    method = 'GET'
+    path = '/'
 
 [[vm]]
-  size = "l40s"
+  size = 'l40s'
