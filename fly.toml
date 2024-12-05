@@ -7,7 +7,10 @@ primary_region = "ord"
 [[mounts]]
   source = "ollama"
   destination = "/root/.ollama"
-  initial_size = "10gb"
+  initial_size = "20gb"
+  auto_extend_size_threshold = 80
+  auto_extend_size_increment = "10gb"
+  auto_extend_size_limit = "100gb"
 
 [http_service]
   internal_port = 11434
@@ -23,6 +26,4 @@ primary_region = "ord"
   path = "/"
 
 [[vm]]
-  size = "performance-8x"
-  memory = "16gb"
-  gpu_kind = "l40s"
+  size = "l40s"
